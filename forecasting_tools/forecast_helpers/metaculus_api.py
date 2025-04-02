@@ -293,6 +293,8 @@ class MetaculusApi:
     def _metaculus_api_json_to_question(
         cls, api_json: dict
     ) -> MetaculusQuestion:
+        api_json_old = api_json
+        api_json = {"question": api_json_old}
         assert (
             "question" in api_json
         ), f"Question not found in API JSON: {api_json}"
